@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+		<script src="/js/dependencies/sails.io.js"></script>
+	</head>
+	<body>
+	<script>
+		var socket = io('http://localhost:1337/');
+		io.socket.get('/challenge/subscribe', function(resData, jwres) {console.log(resData);});
+		socket.emit('get',{'url':'/challenge/subscribe'});
+		socket.on('user', function(obj) {
+				console.log(obj);
+		});
+	</script>
+
+	</body>
+</html>
